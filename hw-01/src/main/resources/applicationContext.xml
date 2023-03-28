@@ -5,7 +5,6 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
     <bean id="resourceService" class="ru.otus.service.ResourceService">
         <constructor-arg value="quiz.csv"/>
     </bean>
@@ -17,9 +16,5 @@
     <bean id="testingService" class="ru.otus.service.TestingService">
         <constructor-arg ref="csvHandler"/>
     </bean>
-
-<!--    <bean id="..." class="...">-->
-<!--        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;-->
-<!--    </bean>-->
 
 </beans>
