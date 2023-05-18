@@ -1,4 +1,4 @@
 *.iml
 .idea/
-hw-01/target/
+/hw-01/target/
 /hw-02/target/
