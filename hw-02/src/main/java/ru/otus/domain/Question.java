@@ -8,10 +8,12 @@ import java.util.List;
 public class Question {
     private final List<Answer> answers;
     private final String question;
+    private final String correctCount;
 
-    public Question(String question, List<Answer> answers) {
+    public Question(String question, List<Answer> answers, String correctCount) {
         this.answers = answers;
         this.question = question;
+        this.correctCount = correctCount;
     }
 
     public List<Answer> getAnswers() {
@@ -20,5 +22,9 @@ public class Question {
 
     public String getQuestion() {
         return question;
+    }
+
+    public String getCorrectCount() {
+        return correctCount;
     }
 }

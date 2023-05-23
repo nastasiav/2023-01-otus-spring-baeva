@@ -1,5 +1,6 @@
 package ru.otus.handler;
 
+import org.springframework.stereotype.Component;
 import ru.otus.domain.Answer;
 import ru.otus.domain.Question;
 import ru.otus.service.ResourceService;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * @author: Baeva Nastasia
  */
+@Component
 public class CsvHandler {
     private static final String separator = ";";
     private final ResourceService resourceService;
@@ -18,18 +20,19 @@ public class CsvHandler {
     public CsvHandler(ResourceService resourceService) {
         this.resourceService = resourceService;
         this.questions = new ArrayList<>();
-        initQuestions();
     }
 
     private void initQuestions() {
+
         try {
             List<List<String>> list = resourceService.getFromCsv(separator);
             for (List<String> lister : list) {
-                List<Answer> answersList = lister.subList(1, lister.size())
+                String correctCount = lister.get(1);
+                List<Answer> answersList = lister.subList(2, lister.size())
                         .stream()
-                        .map(answer -> new Answer(answer.toString()))
+                        .map(answer -> new Answer(answer))
                         .toList();
-                this.questions.add(new Question(lister.get(0), answersList));
+                this.questions.add(new Question(lister.get(0), answersList, correctCount));
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -37,6 +40,7 @@ public class CsvHandler {
     }
 
     public List<Question> getQuestions() {
+        initQuestions();
         return questions;
     }
 }
