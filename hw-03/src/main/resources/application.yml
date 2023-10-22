@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  messages:
+    basename: "i18n/messages/messages"
+    encoding: "UTF-8"
+  banner:
+    location: banner.txt
+
+quiz:
+  locale: "ru_RU"
+  minCountForPass: 4
+  csvFile: resources/quiz.csv
+  countQuestions: 5

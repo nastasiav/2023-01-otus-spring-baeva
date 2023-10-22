@@ -1,0 +1,10 @@
+spring:
+  messages:
+    basename: "i18n/messages/messages"
+    encoding: "UTF-8"
+
+quiz:
+  locale: "en"
+  minCountForPass: 4
+  csvFile: resources/quiz.csv
+  countQuestions: 5
